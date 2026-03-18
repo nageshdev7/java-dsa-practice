@@ -33,11 +33,11 @@ public class FrogJump4 {
         if(n==0) return 0;
         dp[0]=0;
 
-       for(int i=1;i<n;i++){
+       for(int i=1;i<=n;i++){
 
-        int fs=dp[i-1]+Math.abs(dp[i]-dp[i-1]);
+        int fs=dp[i-1]+Math.abs(steps[i]-steps[i-1]);
         int ss =Integer.MAX_VALUE;
-        if(i>1)ss=dp[i-2]+Math.abs(dp[i]-dp[i-2]);
+        if(i>1)ss=dp[i-2]+Math.abs(steps[i]-steps[i-2]);
         dp[i]=Math.min(fs,ss);
        }
        
@@ -59,7 +59,7 @@ public class FrogJump4 {
         Arrays.fill(dp, -1);
 
        System.out.println( frogjump(n,arr,dp));
-       
+       Arrays.fill(dp, -1);
        System.out.println( frogjumpT(n,arr,dp));
     }
     
